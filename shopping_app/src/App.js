@@ -8,7 +8,7 @@ import ShowPage from './Components/ShowPage.js'
 function App() {
   return (
     <div className="App">
-      <h1>Warfield Golf Apparel Shop</h1>
+      <h1>Warfield Golf Apparel</h1>
       <h2>Dress for Success on the Course</h2>
       <Router>
         <div className='nav-routes'/>

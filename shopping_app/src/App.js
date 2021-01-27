@@ -14,7 +14,7 @@ function App() {
         <div className='nav-routes'/>
         <Link to='/'> Shop </Link> <br/>
         <Link to='/CartPage'> Your Cart </Link> <br/>
-        <Link to='/ShowPage'> Product Description </Link> <br/>
+        <Link to='/ShowPage'> Product Descriptions </Link> <br/>
       <Switch>
         <Route path='/CartPage' component={CartPage} />
         <Route path='/ShowPage' component={ShowPage} />

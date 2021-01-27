@@ -6,7 +6,7 @@ function ShowPage(routerProps) {
 
     const fetchProduct = async () => {
         try{
-            const res = await fetch(`http://localhost:3000/ShowPage/${routerProps.match.params.id}`);
+            const res = await fetch(`http://localhost:3000/products/${routerProps.match.params.id}`);
             const json = await res.json();
             setProduct(json)
         }catch(error){
@@ -16,7 +16,7 @@ function ShowPage(routerProps) {
 
     const deleteProduct = async (id) => {
         try {
-          const response = await fetch(`http://localhost:3000/ShowPage/${id}`, {
+          const response = await fetch(`http://localhost:3000/products/${id}`, {
             method: "DELETE",
             headers: {
               "Content-type": "application/json",

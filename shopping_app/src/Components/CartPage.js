@@ -8,7 +8,7 @@ function CartPage () {
 
     const fetchProducts = async () => {
         try {
-            const res = await fetch('http://localhost:3000/CartPage');
+            const res = await fetch('http://localhost:3000/products');
             const json = await res.json();
             setProducts(json);
         }catch(error) {
@@ -18,7 +18,7 @@ function CartPage () {
 
     const deleteProduct = async (id) => {
         try {
-          const response = await fetch(`http://localhost:3000/CartPage/${id}`, {
+          const response = await fetch(`http://localhost:3000/products/${id}`, {
             method: "DELETE",
             headers: {
               "Content-type": "application/json",

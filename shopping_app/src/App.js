@@ -4,6 +4,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {Route, Switch, Link} from 'react-router-dom';
 import CartPage from './Components/CartPage.js'
 import ShowPage from './Components/ShowPage.js'
+import Index from './Components/Index.js'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/ShowPage' component={ShowPage} />
       </Switch>
       </Router>
+      <Index />
     </div>
   );
 }

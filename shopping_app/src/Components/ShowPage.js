@@ -1,34 +1,23 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 
-function ShowPage(routerProps) {
-    const [product, setProduct] = useState([]);
+
+    const ShowPage = (props) => {
+// function ShowPage(props) {
+    const [product, setProduct] = useState({});
 
     const fetchProduct = async () => {
-        try{
-            const res = await fetch(`http://localhost:3000/products/${routerProps.match.params.id}`);
-            const json = await res.json();
-            setProduct(json)
+        try{ 
+            const id = props.routerProps.match.params.id
+            const res = await fetch(`http://localhost:3000/products/${id}`);
+            const data = await res.json();
+            setProduct(data.product)
+            console.log(data)
         }catch(error){
             console.error(error);
         }
     };
 
-    const deleteProduct = async (id) => {
-        try {
-          const response = await fetch(`http://localhost:3000/products/${id}`, {
-            method: "DELETE",
-            headers: {
-              "Content-type": "application/json",
-            },
-          });
-          const data = await response.json();
-          const filteredProducts = product.filter((product) => product.id !== data.id);
-          setProduct(filteredProducts);
-        } catch (error) {
-          console.log(error);
-        }
-      };
 
       useEffect(() => {
           fetchProduct();
@@ -36,8 +25,10 @@ function ShowPage(routerProps) {
 
       return (
           <div>
-            <h1>{product.name}</h1>
-            <p>{product.description}</p>
+           <p>{product.name} {product.description} ${product.price}</p>
+            {/* <h1>{product.name}</h1> <br/>
+            <p>{product.description}</p> <br/>
+            <p>{product.price}</p> */}
           </div>
 
         

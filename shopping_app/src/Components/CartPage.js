@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-// import Button from 'react-bootstrap/Button'
+// import {Link} from 'react-router-dom';
+
 
 function CartPage () {
     const [products, setProducts] = useState([]);
@@ -25,7 +25,7 @@ function CartPage () {
             },
           });
           const data = await response.json();
-          const filteredProducts = products.filter((product) => product.id !== data.id);
+          const filteredProducts = products.filter((product) => product.id !== data.product.id);
           setProducts(filteredProducts);
         } catch (error) {
           console.log(error);
@@ -45,8 +45,7 @@ function CartPage () {
                         <div
                         key={product.id}
                         >
-                        <Link to={`/ShowPage/${product.id}`}>{product.title}</Link>
-                        <Link to={`/CartPage/${product.id}`}><button>Update Cart</button></Link>
+                        <p>{product.name} {product.description} ${product.price}</p>
                         <button onClick={(event) => {deleteProduct(product.id);}}> Delete From Cart </button>
                         </div>
                          

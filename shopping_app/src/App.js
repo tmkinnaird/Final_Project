@@ -13,15 +13,18 @@ function App() {
       <h2>Dress for Success on the Course</h2>
       <Router>
         <div className='nav-routes'/>
-        <Link to='/'> Shop </Link> <br/>
+        <Link to='/Index'> Shop </Link> <br/>
         <Link to='/CartPage'> Your Cart </Link> <br/>
-        <Link to='/ShowPage'> Product Descriptions </Link> <br/>
       <Switch>
         <Route path='/CartPage' component={CartPage} />
-        <Route path='/ShowPage' component={ShowPage} />
+        <Route path='/ShowPage/:id' render={routerProps => {
+          return <ShowPage routerProps={routerProps}
+         /> }} />
+        <Route exact path='/Index' component={Index} />
       </Switch>
+      {/* <Index /> */}
       </Router>
-      <Index />
+      
     </div>
   );
 }

@@ -8,8 +8,8 @@ function Index () {
     const fetchProducts = async () => {
         try {
             const res = await fetch('http://localhost:3000/products');
-            const json = await res.json();
-            setProducts(json);
+            const data = await res.json();
+            setProducts(data);
         }catch(error) {
         console.log(error); 
         }
@@ -24,8 +24,11 @@ function Index () {
             <div className="index">
                 {products.map((product) => {
                     return (
-                        /* <Link to={`/products/${product.id}`}>{product.name}</Link> */
-                        <div>{product.name}</div>
+                        <div
+                        key={product.id}
+                        >
+                         <Link to={`/ShowPage/${product.id}`}>{product.name} ${product.price}</Link> 
+                        </div>
                     );
                 })}
             </div>

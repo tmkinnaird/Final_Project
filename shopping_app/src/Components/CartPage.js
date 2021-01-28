@@ -4,33 +4,33 @@ import {useState, useEffect} from 'react';
 
 
 function CartPage () {
-    const [products, setProducts] = useState([]);
+    const [cartProducts, setProducts] = useState([]);
 
-    const fetchProducts = async () => {
-        try {
-            const res = await fetch('http://localhost:3000/products');
-            const json = await res.json();
-            setProducts(json);
-        }catch(error) {
-        console.log(error); 
-        }
-    };
+    // const fetchProducts = async () => {
+    //     try {
+    //         const res = await fetch('http://localhost:3000/cartProducts');
+    //         const json = await res.json();
+    //         setProducts(json);
+    //     }catch(error) {
+    //     console.log(error); 
+    //     }
+    // };
 
-    const deleteProduct = async (id) => {
-        try {
-          const response = await fetch(`http://localhost:3000/products/${id}`, {
-            method: "DELETE",
-            headers: {
-              "Content-type": "application/json",
-            },
-          });
-          const data = await response.json();
-          const filteredProducts = products.filter((product) => product.id !== data.product.id);
-          setProducts(filteredProducts);
-        } catch (error) {
-          console.log(error);
-        }
-      };
+    // const deleteProduct = async (id) => {
+    //     try {
+    //       const response = await fetch(`http://localhost:3000/cartProducts/${id}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //           "Content-type": "application/json",
+    //         },
+    //       });
+    //       const data = await response.json();
+    //       const filteredProducts = cartProducts.filter((product) => product.id !== data.product.id);
+    //       setProducts(filteredProducts);
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
 
     useEffect(() => {
         fetchProducts();
@@ -40,13 +40,13 @@ function CartPage () {
         <>
             
             <div className="cart">
-                {products.map((product) => {
+                {cartProducts.map((product) => {
                     return (
                         <div
                         key={product.id}
                         >
                         <p>{product.name} {product.description} ${product.price}</p>
-                        <button onClick={(event) => {deleteProduct(product.id);}}> Delete From Cart </button>
+                        {/* <button onClick={(event) => {removeProduct(product.id);}}> Remove From Cart </button> */}
                         </div>
                          
                     );

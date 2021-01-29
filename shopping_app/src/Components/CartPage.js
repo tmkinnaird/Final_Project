@@ -4,13 +4,13 @@ import {useState, useEffect} from 'react';
 
 
 function CartPage () {
-    const [cartProducts, setProducts] = useState([]);
+    const [cartProducts, setcartProducts] = useState([]);
 
-    // const fetchProducts = async () => {
+    // const fetchcartProducts = async () => {
     //     try {
     //         const res = await fetch('http://localhost:3000/cartProducts');
     //         const json = await res.json();
-    //         setProducts(json);
+    //         setcartProducts(json);
     //     }catch(error) {
     //     console.log(error); 
     //     }
@@ -33,7 +33,7 @@ function CartPage () {
     //   };
 
     useEffect(() => {
-        fetchProducts();
+        // fetchcartProducts();
     }, []);
 
     return (

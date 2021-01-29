@@ -17,7 +17,7 @@ function Index () {
     };
 
     function addToCart (index) {
-        setCartProducts (...cartProducts, [index])
+        setCartProducts ([...cartProducts, index])
     }
 
     useEffect(() => {
@@ -34,7 +34,7 @@ function Index () {
                         key={product.id}
                         >
                          <Link to={`/ShowPage/${product.id}`}>{product.name} ${product.price}</Link>
-                         <button onClick={() => addToCart(index)}>Add To Cart</button> 
+                         <button onClick={() => addToCart(product)}>Add To Cart</button> 
                         </div>
                     );
                 })}

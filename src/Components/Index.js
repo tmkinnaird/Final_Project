@@ -1,10 +1,11 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
-function Index () {
+function Index (props) {
     const [products, setProducts] = useState([]);
-    const [cartProducts, setCartProducts] = useState([]);
+  
 
     const fetchProducts = async () => {
         try {
@@ -17,21 +18,22 @@ function Index () {
     };
 
     function addToCart (index) {
-        setCartProducts ([...cartProducts, index])
+        props.updateCart(index)
     }
 
     useEffect(() => {
         fetchProducts();
     }, []);
-    console.log(cartProducts)
+    
 
     return (
         <>
+        <h1>Products</h1>
             <div className="index">
                 {products.map((product, index) => {
                     return (
                         <div
-                        key={product.id}
+                        key={uuidv4()}
                         >
                          <Link to={`/ShowPage/${product.id}`}>{product.name} ${product.price}</Link>
                          <button onClick={() => addToCart(product)}>Add To Cart</button> 

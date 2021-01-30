@@ -1,9 +1,10 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-// import {Link} from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 
-function CartPage () {
+
+function CartPage (props) {
     const [cartProducts, setcartProducts] = useState([]);
 
     const fetchcartProducts = async () => {
@@ -33,20 +34,20 @@ function CartPage () {
     //   };
 
     useEffect(() => {
-        fetchcartProducts();
+        // fetchcartProducts();
     }, [cartProducts]);
 
     return (
         <>
             
             <div className="cart">
-                {cartProducts.map((product) => {
+                {props.cart.map((product, index) => {
                     return (
                         <div
-                        key={product.id}
+                        key={uuidv4()}
                         >
                         <p>{product.name} {product.description} ${product.price}</p>
-                        {/* <button onClick={(event) => {removeProduct(product.id);}}> Remove From Cart </button> */}
+                        <button onClick={(event) => props.removeFromCart(index)}> Remove From Cart </button>
                         </div>
                          
                     );

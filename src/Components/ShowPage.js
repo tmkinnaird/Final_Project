@@ -3,7 +3,6 @@ import {useState, useEffect} from 'react';
 
 
     const ShowPage = (props) => {
-// function ShowPage(props) {
     const [product, setProduct] = useState({});
 
     const fetchProduct = async () => {
@@ -26,9 +25,6 @@ import {useState, useEffect} from 'react';
       return (
           <div>
            <p>{product.name} {product.description} ${product.price}</p>
-            {/* <h1>{product.name}</h1> <br/>
-            <p>{product.description}</p> <br/>
-            <p>{product.price}</p> */}
           </div>
 
         

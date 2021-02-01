@@ -2,11 +2,34 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import styled from 'styled-components'
+
+
 
 function Index (props) {
     const [products, setProducts] = useState([]);
+    const Button = styled.button`
+    background: transparent;
+  border-radius: 3px;
+  border: 2px solid gold;
+  color: gold;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  &:hover {
+    background-color: gold;
+    color: white;
+  }
+`
+const Link = ({ className, children }) => (
+    <a className={className}>
+      {children}
+    </a>
+  );
   
-
+  const StyledLink = styled(Link)`
+    color: white;
+    font-weight: bold;
+  `;
     const fetchProducts = async () => {
         try {
             const res = await fetch('http://localhost:3000/products');
@@ -35,8 +58,8 @@ function Index (props) {
                         <div
                         key={uuidv4()}
                         >
-                         <Link to={`/ShowPage/${product.id}`}>{product.name} ${product.price}</Link>
-                         <button onClick={() => addToCart(product)}>Add To Cart</button> 
+                         <StyledLink to={`/ShowPage/${product.id}`}>{product.name} ${product.price}</StyledLink>
+                         <Button onClick={() => addToCart(product)}>Add To Cart</Button> 
                         </div>
                     );
                 })}

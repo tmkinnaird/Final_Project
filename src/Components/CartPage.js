@@ -48,6 +48,7 @@ function CartPage (props) {
                         >
                         <p>{product.name} {product.description} ${product.price}</p>
                         <button onClick={(event) => props.removeFromCart(index)}> Remove From Cart </button>
+                        <button onClick={(event) => props.checkout(product)}>Checkout</button>
                         </div>
                          
                     );

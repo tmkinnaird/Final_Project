@@ -28,7 +28,7 @@ function Index (props) {
 
     return (
         <>
-        <h1>Products</h1>
+        <h1>Gear</h1>
             <div className="index">
                 {products.map((product, index) => {
                     return (

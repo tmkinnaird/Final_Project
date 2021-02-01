@@ -1,5 +1,6 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 
     const ShowPage = (props) => {
@@ -17,14 +18,19 @@ import {useState, useEffect} from 'react';
         }
     };
 
-
+    function addToCart (index) {
+      props.updateCart(index)
+  }
       useEffect(() => {
           fetchProduct();
       }, []);
 
       return (
-          <div>
+          <div
+            key={uuidv4()}
+          >
            <p>{product.name} {product.description} ${product.price}</p>
+           <button onClick={() => addToCart(product)}>Add To Cart</button> 
           </div>
 
         

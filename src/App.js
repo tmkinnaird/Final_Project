@@ -15,6 +15,10 @@ function App() {
 const removeFromCart = (index) => {
   setCart([...cart.slice(0, index), ...cart.slice(index + 1)])
 }
+
+const checkout = (index) => {
+  setCart([...cart.slice(0, index), ...cart.slice(index + 1)])
+}
   return (
     <div className="App">
       <h1>Warfield Golf Apparel</h1>
@@ -32,12 +36,14 @@ const removeFromCart = (index) => {
                 setCart={setCart}
                 updateCart={updateCart}
                 removeFromCart={removeFromCart}
+                checkout={checkout}
               />
+              
             )
           }
         } />
         <Route path='/ShowPage/:id' render={routerProps => {
-          return <ShowPage routerProps={routerProps}
+          return <ShowPage routerProps={routerProps} updateCart={updateCart}
          /> }} />
         <Route exact path='/Index' component={
           (props) => {

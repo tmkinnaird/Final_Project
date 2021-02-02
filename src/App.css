@@ -1,6 +1,21 @@
  * {
-  border: 1px solid black;
-  background-color: green;
+  background-color: darkgreen;
+}
+h1{
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+}
+
+h2{
+  font-family: 'Permanent Marker', cursive;
+  color: white;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .App {

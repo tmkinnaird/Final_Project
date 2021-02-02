@@ -4,11 +4,7 @@ import {Link} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components'
 
-
-
-function Index (props) {
-    const [products, setProducts] = useState([]);
-    const Button = styled.button`
+const Button = styled.button`
     background: transparent;
   border-radius: 3px;
   border: 2px solid gold;
@@ -18,18 +14,23 @@ function Index (props) {
   &:hover {
     background-color: gold;
     color: white;
+    cursor: pointer;
   }
 `
-const Link = ({ className, children }) => (
-    <a className={className}>
-      {children}
-    </a>
-  );
+// const Link = ({ className, children }) => (
+//     <a className={className}>
+//       {children}
+//     </a>
+//   );
   
   const StyledLink = styled(Link)`
     color: white;
     font-weight: bold;
   `;
+
+function Index (props) {
+    const [products, setProducts] = useState([]);
+    
     const fetchProducts = async () => {
         try {
             const res = await fetch('http://localhost:3000/products');
@@ -56,9 +57,11 @@ const Link = ({ className, children }) => (
                 {products.map((product, index) => {
                     return (
                         <div
+                        className="product"
                         key={uuidv4()}
                         >
-                         <StyledLink to={`/ShowPage/${product.id}`}>{product.name} ${product.price}</StyledLink>
+                        <img src={product.img} width="300px" />
+                         <StyledLink to={`/ShowPage/${product.id}`}>{product.name} ${product.price} </StyledLink>
                          <Button onClick={() => addToCart(product)}>Add To Cart</Button> 
                         </div>
                     );

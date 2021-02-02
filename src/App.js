@@ -8,6 +8,12 @@ import Index from './Components/Index.js'
 import Checkout from './Components/Checkout.js'
 import styled from 'styled-components'
 
+
+const StyledLink = styled(Link)`
+    color: white;
+    font-weight: bold;
+  `;
+
 function App() {
   const [cart, setCart] =useState([])
   const updateCart = (newProduct) => {
@@ -28,8 +34,8 @@ const checkout = (index) => {
       <h2>Dress for Success on the Course</h2>
       <Router>
         <div className='nav-routes'/>
-        <Link to='/Index'> Shop </Link> <br/>
-        <Link to='/CartPage'> Your Cart </Link> <br/>
+        <StyledLink to='/Index'> Shop </StyledLink> <br/>
+        <StyledLink to='/CartPage'> Your Cart </StyledLink> <br/>
         
       <Switch>
         <Route path='/CartPage' component={

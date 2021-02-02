@@ -29,7 +29,9 @@ import { v4 as uuidv4 } from 'uuid';
           <div
             key={uuidv4()}
           >
-           <p>{product.name} {product.description} ${product.price}</p>
+          <img src={product.img} width= "500px"/>
+          <h3>{product.name}</h3>
+           <p> {product.description} <br/>${product.price}</p>
            <button onClick={() => addToCart(product)}>Add To Cart</button> 
           </div>
 

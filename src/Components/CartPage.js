@@ -4,31 +4,34 @@ import { v4 as uuidv4 } from 'uuid';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components'
 
+const Button = styled.button`
+background: transparent;
+border-radius: 3px;
+border: 2px solid gold;
+color: gold;
+margin: 0 1em;
+padding: 0.25em 1em;
+&:hover {
+background-color: gold;
+color: white;
+cursor: pointer;
+}
+`
+// const Link = ({ className, children }) => (
+// <a className={className}>
+//   {children}
+// </a>
+// );
+
+const StyledLink = styled(Link)`
+color: gold;
+font-weight: bold;
+`;
+
 
 function CartPage (props) {
     const [cartProducts, setcartProducts] = useState([]);
-    const Button = styled.button`
-    background: transparent;
-  border-radius: 3px;
-  border: 2px solid gold;
-  color: gold;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  &:hover {
-    background-color: gold;
-    color: white;
-  }
-`
-const Link = ({ className, children }) => (
-    <a className={className}>
-      {children}
-    </a>
-  );
-  
-  const StyledLink = styled(Link)`
-    color: gold;
-    font-weight: bold;
-  `;
+   
 
     const fetchcartProducts = async () => {
         try {
@@ -69,7 +72,9 @@ const Link = ({ className, children }) => (
                         <div
                         key={uuidv4()}
                         >
-                        <p>{product.name} {product.description} ${product.price}</p>
+                        <img src={product.img} width= "200px"/>
+                        <h3>{product.name}</h3>
+                        <p> {product.description}<br/> ${product.price}</p>
                         <Button onClick={(event) => props.removeFromCart(index)}> Remove From Cart </Button>
                         <StyledLink to={`/Checkout`}>Checkout</StyledLink>
                         </div>

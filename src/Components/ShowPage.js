@@ -1,6 +1,21 @@
 import React from 'react'
 import {useState, useEffect} from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import styled from 'styled-components'
+
+const Button = styled.button`
+    background: transparent;
+  border-radius: 3px;
+  border: 2px solid gold;
+  color: gold;
+  margin: 0 1em;
+  padding: 0.25em 1em;
+  &:hover {
+    background-color: gold;
+    color: white;
+    cursor: pointer;
+  }
+`
 
 
     const ShowPage = (props) => {
@@ -26,13 +41,15 @@ import { v4 as uuidv4 } from 'uuid';
       }, []);
 
       return (
-          <div
+          <div className='showpage'
             key={uuidv4()}
           >
-          <img src={product.img} width= "500px"/>
+          <div>
+          <img src={product.img} width="400px"/>
           <h3>{product.name}</h3>
            <p> {product.description} <br/>${product.price}</p>
-           <button onClick={() => addToCart(product)}>Add To Cart</button> 
+           <Button onClick={() => addToCart(product)}>Add To Cart</Button> 
+           </div>
           </div>
 
         

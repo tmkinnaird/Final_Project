@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
 import { v4 as uuidv4 } from 'uuid';
-
+import Form from 'react-bootstrap/Form';
 
 
 function Checkout (props) {
@@ -26,27 +26,33 @@ function Checkout (props) {
         <>
             
             <div className="checkout">
-                {props.cart.map((product, index) => {
-                    return (
+                
+                    
                         <div
                         key={uuidv4()}
                         >
-                        <ul>
-                        <form >
-                        <label>First Name: <input type="text"/> </label><br/>
-                        <label>Last Name: <input type="text"/> </label><br/>
-                        <label>Credit Card Number: <input type="text"/> </label><br/>
-                        <label>Expiration: <input type="text"/> </label><br/>
-                        <label>CVV: <input type="text"/> </label><br/>
-                        <label>Email Address: <input type="text"/> </label><br/>
-                        <label>Shipping Address: <input type="text"/> </label>
-
-                        </form>
-                        </ul>
+                        
+                        <div className="form-group">
+                            <Form >
+                                <Form.Group>
+                                    <Form.Label>First Name:</Form.Label><Form.Control type="text"/> <br/>
+                                    <Form.Label>Last Name: </Form.Label><Form.Control type="text"/> <br/>
+                                    <Form.Label>Credit Card Number:</Form.Label> <Form.Control type="text"/> <br/>
+                                    <Form.Label>Expiration:</Form.Label> <Form.Control type="text"/> <br/>
+                                    <Form.Label>CVV: </Form.Label><Form.Control type="text"/> <br/>
+                                    <Form.Label>Email Address: </Form.Label><Form.Control type="text"/> <br/>
+                                    <Form.Label>Shipping Address:</Form.Label><Form.Control type="text"/><br/>
+                                    <Form.Label>State:</Form.Label><Form.Control type="text"/> <br/>
+                                    <Form.Label>City: </Form.Label><Form.Control type="text"/> <br/>
+                                    <Form.Label>ZipCode:</Form.Label> <Form.Control type="number"/> 
+                                </Form.Group>
+                            </Form>
+                        </div>
+                        
                         </div>
                          
-                    );
-                })}
+                    
+                
             </div>
             
         </>

@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Button = styled.button`
     background: transparent;
@@ -26,6 +27,10 @@ const Button = styled.button`
   const StyledLink = styled(Link)`
     color: white;
     font-weight: bold;
+    &:hover {
+    background-color: gold;
+    color: white;
+    cursor: pointer;
   `;
 
 function Index (props) {
@@ -60,8 +65,8 @@ function Index (props) {
                         className="product"
                         key={uuidv4()}
                         >
-                        <img src={product.img} width="300px" />
-                         <StyledLink to={`/ShowPage/${product.id}`}>{product.name} ${product.price} </StyledLink>
+                        <img src={product.img} />
+                         <StyledLink to={`/ShowPage/${product.id}`}>{product.name} <br/>${product.price} </StyledLink>
                          <Button onClick={() => addToCart(product)}>Add To Cart</Button> 
                         </div>
                     );

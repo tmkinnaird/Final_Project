@@ -30,12 +30,14 @@ const checkout = (index) => {
 }
   return (
     <div className="App">
+    <Router>
+    <nav><StyledLink to='/Index'> Shop </StyledLink> 
+        <StyledLink to='/CartPage'> Your Cart </StyledLink> </nav>
       <h1>Warfield Golf Apparel</h1>
       <h2>Dress for Success on the Course</h2>
-      <Router>
-        <div className='nav-routes'/>
-        <StyledLink to='/Index'> Shop </StyledLink> <br/>
-        <StyledLink to='/CartPage'> Your Cart </StyledLink> <br/>
+      <h4>Warfield Golf Club means golf is for all.<br/> We work hard to perpetuate a feeling of inclusivity on and off the course.</h4>
+      
+        
         
       <Switch>
         <Route path='/CartPage' component={

@@ -9,6 +9,7 @@ import Checkout from './Components/Checkout.js'
 import styled from 'styled-components'
 
 
+
 const StyledLink = styled(Link)`
     color: white;
     font-weight: bold;

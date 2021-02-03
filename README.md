@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Ruby on Rails for the backend build
+
+### React for the frontend build 
+
+### Styled components and bootstrap for styling
+
+### A react app with rails backend. An e-commerce site with a non-functional checkout page. 
+### A tiresome final project for a bootcamp that made me feel very tired.

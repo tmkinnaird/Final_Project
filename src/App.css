@@ -60,9 +60,8 @@ a {
   flex-wrap: wrap;
   justify-content: space-around;
   text-align: center;
+  margin: 50px;
 }
-
-
 
 
 .product:first-child {

@@ -37,6 +37,7 @@ const Button = styled.button`
 function Index (props) {
     const [products, setProducts] = useState([]);
     
+    
     const fetchProducts = async () => {
         try {
             const res = await fetch('http://localhost:3000/products');
